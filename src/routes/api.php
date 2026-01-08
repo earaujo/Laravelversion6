@@ -5,15 +5,16 @@ use Illuminate\Support\Facades\Route;
 // Agregar el controlador EventoController 
 use App\Http\Controllers\EventoController;
 
+ /*
 Route::get('/user', function (Request $request) {
     return $request->user();
-})->middleware('auth:api');
+})->middleware('auth:api'); */
 
 /** 
 * Rutas para el recurso Evento. 
 */ 
 // Recuperar todos los eventos 
-Route::get('/eventos', [EventoController::class, 'index']); 
+Route::get('/eventos', [EventoController::class,'index']); 
 // Almacenar un evento nuevo 
 Route::post('/eventos', [EventoController::class, 'store']); 
 // Recuperar un evento específico 
