@@ -14,6 +14,7 @@ Route::get('/user', function (Request $request) {
 /** 
 * Rutas para el recurso Evento. 
 */ 
+
 // Recuperar todos los eventos 
 Route::get('/eventos', [EventoController::class,'index']); 
 // Almacenar un evento nuevo 
@@ -26,4 +27,14 @@ Route::put('/eventos/{evento}', [EventoController::class, 'update']);
 Route::delete('/eventos/{id}', [EventoController::class, 'destroy']); 
 
 // recuperar todos los ponentes
-Route::get('/ponentes', [PonenteController::class,'index']); 
+Route::get('/ponentes', [PonenteController::class,'index']);  
+Route::middleware('auth:api')->group(function () { 
+    // Almacenar un evento nuevo 
+Route::post('/eventos', [EventoController::class, 'store']); 
+// Actualizar un evento específico 
+Route::put('/eventos/{evento}', [EventoController::class, 'update']); 
+// Eliminar un evento específico 
+Route::delete('/eventos/{id}', [EventoController::class, 'destroy']); 
+
+
+  });

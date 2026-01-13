@@ -12,9 +12,9 @@ return [
     | as required, but they're a perfect start for most applications.
     |
     */
-
+ /* 'guard' => env('AUTH_GUARD', 'web'), */
     'defaults' => [
-        'guard' => env('AUTH_GUARD', 'web'),
+         'guard' => 'api',
         'passwords' => env('AUTH_PASSWORD_BROKER', 'users'),
     ],
 
@@ -40,6 +40,11 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+         'api' => [
+            'driver' => 'keycloak', //usa el guard de keycloak
+            'provider' => 'users',
+        ],
+
     ],
 
     /*
