@@ -105,7 +105,7 @@ class EventoController extends Controller
     /** 
 * Actualizar el recurso especificado en el almacenamiento. 
 */ 
-    public function update(Request $request, Evento $evento)
+    public function update(Request $request,$id)
     {
         // Recuperar el recurso especificado 
             $evento = Evento::find($id); 
